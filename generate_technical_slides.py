@@ -95,105 +95,115 @@ def generate_presentation():
     title = slide.shapes.title
     subtitle = slide.placeholders[1]
 
-    title.text = "Atelier Technique : Data Wrangling & Bases de Données"
+    title.text = "Atelier Technique : Data Expert & SQL"
     title.text_frame.paragraphs[0].font.name = TITLE_FONT
     title.text_frame.paragraphs[0].font.size = Pt(40)
     title.text_frame.paragraphs[0].font.color.rgb = COLOR_BLUE
 
-    subtitle.text = "De l'Excel avancé aux opérations CRUD SQL/NoSQL"
+    subtitle.text = "Excel Expert (VBA, Power Query) & CRUD SQL/NoSQL"
     subtitle.text_frame.paragraphs[0].font.name = BODY_FONT
     subtitle.text_frame.paragraphs[0].font.size = Pt(24)
     subtitle.text_frame.paragraphs[0].font.color.rgb = COLOR_ORANGE
 
-    # 2. Agenda
+    # 2. Agenda Expert
     slide = create_slide(prs, 5)
-    add_title(slide, "Au Programme")
+    add_title(slide, "Au Programme (3h30)")
     add_content_text(slide, [
-        "1. Nettoyage de Données (Excel & Power Query)",
-        "2. Tri vs Filtre : Ne plus confondre",
-        "3. SQL vs NoSQL : CRUD en pratique",
-        "4. Gestion de Données : Bonnes Pratiques",
-        "5. Atelier Pratique : Telco & Banque"
+        "1. Tri & Filtres Avancés (Multi-critères, Slicers)",
+        "2. Croiser les données : VLOOKUP vs Power Query Merge",
+        "3. Automatisation : Intro VBA & Google AppScript",
+        "4. Le langage M (Power Query) pour les cas complexes",
+        "5. SQL Jointures (JOIN) vs NoSQL Imbrication",
+        "6. Atelier Pratique : Gestion de Clients Telco"
     ])
 
-    # 3. Garbage In, Garbage Out
+    # 3. Excel : Tri Expert
     slide = create_slide(prs, 5)
-    add_title(slide, "Le Concept Clé : GIGO")
-
-    draw_shape(slide, MSO_SHAPE.CAN, Inches(1), Inches(3), Inches(1.5), Inches(2), COLOR_GRAY, "Données Sales\n(Garbage In)")
-    draw_shape(slide, MSO_SHAPE.RIGHT_ARROW, Inches(3), Inches(3.5), Inches(1), Inches(0.5), COLOR_BLUE)
-    draw_shape(slide, MSO_SHAPE.GEAR_6, Inches(4.5), Inches(3), Inches(2), Inches(2), COLOR_ORANGE, "Traitement")
-    draw_shape(slide, MSO_SHAPE.RIGHT_ARROW, Inches(7), Inches(3.5), Inches(1), Inches(0.5), COLOR_BLUE)
-    draw_shape(slide, MSO_SHAPE.CAN, Inches(8.5), Inches(3), Inches(1.5), Inches(2), COLOR_GRAY, "Résultat Faux\n(Garbage Out)")
-
-    add_content_text(slide, ["Exemple Telco : Un numéro '+33 6...' vs '06...' crée deux clients différents !"], Inches(1), Inches(5.5), Inches(8))
-
-    # 4. Excel Avancé : Tri vs Filtre
-    slide = create_slide(prs, 5)
-    add_title(slide, "Excel : Trier ou Filtrer ?")
-
-    draw_shape(slide, MSO_SHAPE.UP_ARROW_CALLOUT, Inches(0.5), Inches(2), Inches(4), Inches(2), COLOR_BLUE, "TRIER (Sort)\nOrganise l'ordre (A-Z, 1-10).\nAucune donnée n'est cachée.\nUsage : Classement, Top 10.")
-    draw_shape(slide, MSO_SHAPE.FUNNEL, Inches(5), Inches(2), Inches(4), Inches(2), COLOR_ORANGE, "FILTRER (Filter)\nMasque les lignes non désirées.\nAttention : Les données cachées existent toujours !\nUsage : Focus sur une catégorie.")
-
-    # 5. Power Query (Démo Conceptuelle)
-    slide = create_slide(prs, 5)
-    add_title(slide, "Au-delà d'Excel : Power Query")
+    add_title(slide, "Tri Multi-Niveaux")
     add_content_text(slide, [
-        "Pourquoi ? Excel plante après 1M lignes. Power Query automatise.",
-        "Fonctionnalité clé : ETL (Extract, Transform, Load).",
-        "Exemple : Séparer 'Nom Prénom' en 2 colonnes."
-    ], width=Inches(8))
+        "Le Tri simple (A-Z) ne suffit pas.",
+        "Cas réel : Trier par Région, PUIS par Offre, PUIS par Nom.",
+        "Outil : Données > Trier (Custom Sort).",
+        "Astuce : On peut trier par couleur ou icône !"
+    ], width=Inches(6))
 
-    add_placeholder_image(slide, "Power Query Editor : Colonne 'Split by Delimiter'", Inches(1), Inches(4), Inches(8), Inches(3))
+    draw_shape(slide, MSO_SHAPE.DOWN_ARROW, Inches(7), Inches(2), Inches(1), Inches(3), COLOR_BLUE, "1. Region\n2. Offre\n3. Nom")
 
-    # 6. SQL : Structure & CRUD
+    # 4. Filtres Avancés
     slide = create_slide(prs, 5)
-    add_title(slide, "SQL : Le Langage Structuré")
-
-    # Table visual
-    draw_shape(slide, MSO_SHAPE.RECTANGLE, Inches(0.5), Inches(2), Inches(3), Inches(2), COLOR_BLUE, "Table 'Clients'\nID | Nom | Solde")
-
-    # CRUD commands
-    add_code_block(slide, "CREATE TABLE Clients (id INT, nom VARCHAR(50));\n\n-- C: Create\nINSERT INTO Clients VALUES (1, 'Jean');\n\n-- R: Read\nSELECT * FROM Clients WHERE id=1;\n\n-- U: Update\nUPDATE Clients SET nom='Paul' WHERE id=1;\n\n-- D: Delete\nDELETE FROM Clients WHERE id=1;", Inches(4), Inches(2), Inches(5.5), Inches(5))
-
-    # 7. NoSQL : Flexibilité & CRUD
-    slide = create_slide(prs, 5)
-    add_title(slide, "NoSQL : L'Approche Document")
-
-    # JSON visual
-    add_code_block(slide, "{\n  '_id': 1,\n  'nom': 'Jean',\n  'historique': ['Achat1', 'Achat2']\n}", Inches(0.5), Inches(2), Inches(3.5), Inches(3))
-
-    # CRUD commands
-    add_code_block(slide, "// C: Create\ndb.clients.insertOne({nom: 'Jean'});\n\n// R: Read\ndb.clients.find({nom: 'Jean'});\n\n// U: Update\ndb.clients.updateOne({nom: 'Jean'}, {$set: {nom: 'Paul'}});\n\n// D: Delete\ndb.clients.deleteOne({nom: 'Paul'});", Inches(4.5), Inches(2), Inches(5), Inches(5))
-
-    # 8. Concepts Avancés : Delete vs Drop
-    slide = create_slide(prs, 5)
-    add_title(slide, "Ne pas confondre !")
-
-    draw_shape(slide, MSO_SHAPE.RECTANGLE, Inches(1), Inches(2), Inches(3.5), Inches(2), COLOR_ORANGE, "DELETE\nSupprime les DONNÉES.\nLa table (structure) reste vide.\nOn peut annuler (Rollback).")
-    draw_shape(slide, MSO_SHAPE.RECTANGLE, Inches(5.5), Inches(2), Inches(3.5), Inches(2), COLOR_BLUE, "DROP\nSupprime TOUT.\nDonnées + Structure.\nIrréversible (sauf backup).")
-
-    # 9. Standards de Données (ISO)
-    slide = create_slide(prs, 5)
-    add_title(slide, "Standards Internationaux")
-
+    add_title(slide, "Filtres Avancés (Criteria Range)")
     add_content_text(slide, [
-        "Dates (ISO 8601) : YYYY-MM-DD (2023-12-31).",
-        "Décimales : Point (.) ou Virgule (,) ? Dépend du système (US vs FR).",
-        "Encodage : UTF-8 (pour les accents é, à, ç)."
+        "Pour des conditions complexes (ET / OU).",
+        "Nécessite une 'Zone de critères' séparée.",
+        "Permet d'extraire les données vers une autre feuille.",
+        "Alternative moderne : Fonction FILTER() (Office 365)."
     ])
 
-    draw_shape(slide, MSO_SHAPE.PLAQUE, Inches(6), Inches(4), Inches(3), Inches(1.5), COLOR_BLUE, "2023-12-31\n✅ Standard")
+    add_placeholder_image(slide, "Boîte de dialogue 'Filtre Avancé' avec Plage et Critères", Inches(1), Inches(4.5), Inches(8), Inches(2.5))
 
-    # 10. Bonnes Pratiques Gestionnaire
+    # 5. Power Query : Au-delà du clic
     slide = create_slide(prs, 5)
-    add_title(slide, "Checklist du Gestionnaire de Données")
-
+    add_title(slide, "Power Query : Langage M")
     add_content_text(slide, [
-        "1. Toujours garder une copie du fichier BRUT (Raw Data).",
-        "2. Ne jamais travailler sur l'original.",
-        "3. Documenter les nettoyages faits (ex: 'J'ai remplacé les vides par 0').",
-        "4. Vérifier les types (Est-ce que '123' est un nombre ou du texte ?)."
+        "Derrière chaque clic, Power Query écrit du code M.",
+        "On peut l'éditer pour des calculs complexes.",
+        "Exemple : Date.FromText([DateString])",
+        "Exemple : Text.Select([Phone], {'0'..'9'})"
+    ], width=Inches(5))
+
+    add_code_block(slide, "let\n  Source = Excel.CurrentWorkbook(){[Name='Table1']}[Content],\n  ChangedType = Table.TransformColumnTypes(Source,{{'Date', type date}}),\n  FilteredRows = Table.SelectRows(ChangedType, each ([Montant] > 100))\nin\n  FilteredRows", Inches(5.5), Inches(2), Inches(4), Inches(4))
+
+    # 6. VBA vs AppScript
+    slide = create_slide(prs, 5)
+    add_title(slide, "Automatisation : Le Duel")
+
+    draw_shape(slide, MSO_SHAPE.RECTANGLE, Inches(0.5), Inches(2), Inches(4), Inches(4), COLOR_BLUE, "VBA (Excel)\n\nAncien mais robuste.\nLocal (Desktop).\nLangage : Visual Basic.\nIdéal pour formulaires UserForm.")
+    draw_shape(slide, MSO_SHAPE.RECTANGLE, Inches(5), Inches(2), Inches(4), Inches(4), COLOR_ORANGE, "AppScript (Google)\n\nModerne (Cloud).\nWeb (Browser).\nLangage : JavaScript.\nIdéal pour connecteurs (Gmail, Drive).")
+
+    # 7. Google Sheets : La fonction QUERY
+    slide = create_slide(prs, 5)
+    add_title(slide, "Google Sheets : QUERY()")
+    add_content_text(slide, [
+        "La puissance du SQL directement dans le tableur.",
+        "Plus flexible que les TCD (Tableaux Croisés Dynamiques).",
+        "Syntaxe : =QUERY(Données; 'SELECT A, SUM(B) GROUP BY A'; 1)"
+    ], width=Inches(9))
+
+    add_code_block(slide, "=QUERY(A1:D100; \n  \"SELECT A, AVG(C) \n   WHERE D = 'Actif' \n   GROUP BY A \n   LABEL AVG(C) 'Moyenne'\")", Inches(1), Inches(4), Inches(8), Inches(2))
+
+    # 8. SQL Avancé : JOIN
+    slide = create_slide(prs, 5)
+    add_title(slide, "SQL : Les Jointures (JOIN)")
+
+    # Visual representations of tables
+    t1 = draw_shape(slide, MSO_SHAPE.RECTANGLE, Inches(1), Inches(3), Inches(2), Inches(1.5), COLOR_BLUE, "Table Clients\n(ID_Offre)")
+    t2 = draw_shape(slide, MSO_SHAPE.RECTANGLE, Inches(5), Inches(3), Inches(2), Inches(1.5), COLOR_GRAY, "Table Offres\n(ID_Offre)")
+
+    # Connector
+    slide.shapes.add_connector(MSO_CONNECTOR.STRAIGHT, Inches(3), Inches(3.75), Inches(5), Inches(3.75))
+
+    add_content_text(slide, ["INNER JOIN : Prend l'intersection des deux tables basées sur une clé commune."], Inches(1), Inches(5), Inches(8))
+
+    # 9. NoSQL : Imbrication
+    slide = create_slide(prs, 5)
+    add_title(slide, "NoSQL : Pas de JOIN !")
+    add_content_text(slide, [
+        "En NoSQL, on évite les relations complexes.",
+        "On préfère imbriquer les données (Embedding).",
+        "Avantage : Lecture ultra-rapide (1 seul accès disque).",
+        "Inconvénient : Duplication de données."
+    ])
+
+    add_code_block(slide, "{\n  'nom': 'Jean',\n  'adresse': { \n    'rue': 'Main St', \n    'ville': 'Paris' \n  }\n}", Inches(6), Inches(2.5), Inches(3), Inches(3))
+
+    # 10. Conclusion & Ressources
+    slide = create_slide(prs, 5)
+    add_title(slide, "Ressources & Outils")
+    add_content_text(slide, [
+        "DB Fiddle (SQL Training)",
+        "MongoDB Atlas (NoSQL Cloud)",
+        "Stack Overflow (VBA/Excel Help)",
+        "Documentation Google AppScript"
     ])
 
     prs.save(FILENAME)
