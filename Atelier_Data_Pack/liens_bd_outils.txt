@@ -1,0 +1,36 @@
+
+### Outils SQL en Ligne (Gratuits)
+
+1.  **DB Fiddle**
+    *   **Lien :** https://www.db-fiddle.com/
+    *   **Description :** Excellent pour tester des requêtes SQL rapidement sur PostgreSQL, MySQL ou SQLite sans installation.
+    *   **Usage :** Copiez-collez vos scripts `CREATE TABLE` et `INSERT` à gauche, écrivez vos `SELECT` à droite.
+
+2.  **SQL Fiddle**
+    *   **Lien :** http://sqlfiddle.com/
+    *   **Description :** Un classique pour partager des schémas et des requêtes.
+
+3.  **W3Schools SQL Editor**
+    *   **Lien :** https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all
+    *   **Description :** Très pédagogique, contient déjà une base de données pré-remplie pour s'entraîner au `SELECT`.
+
+---
+
+### Outils NoSQL en Ligne (Gratuits)
+
+1.  **MongoDB Atlas (Free Tier)**
+    *   **Lien :** https://www.mongodb.com/cloud/atlas/register
+    *   **Description :** La vraie plateforme MongoDB dans le cloud. Nécessite une inscription, mais offre un cluster gratuit (M0 Sandbox) idéal pour apprendre.
+    *   **Usage :** Créez un cluster gratuit, cliquez sur "Browse Collections" pour insérer des documents JSON directement via l'interface web.
+
+2.  **Mongo Playground**
+    *   **Lien :** https://mongoplayground.net/
+    *   **Description :** Similaire à DB Fiddle mais pour MongoDB. Pas d'inscription requise.
+    *   **Usage :** Idéal pour tester des agrégations et des requêtes `find()` simples.
+
+---
+
+### Ressources d'Apprentissage
+
+*   **SQL (Français) :** https://sql.sh/
+*   **Tutoriels Microsoft Excel (Nettoyage) :** https://support.microsoft.com/fr-fr/excel

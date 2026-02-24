@@ -1,0 +1,18 @@
+
+Client_ID,Nom_Client,Date_Inscription,Montant_Forfait,Statut,Derniere_Connexion,Email,Telephone
+001,Dupont Jean,2023-01-15,29.99,Actif,2024-02-20,jean.dupont@email.com,0612345678
+002,Martin Sophie,15/01/2023,45.00,Resilié,,sophie.m@provider.fr,+33 6 98 76 54 32
+003,Bernard Lucas,2023-03-10,"29,99",Actif,2024-02-18,lucas.bernard@yahoo.fr,07 55 44 33 22
+004,,2023-04-01,19.99,Actif,2024-02-19,,
+001,Dupont Jean,2023-01-15,29.99,Actif,2024-02-20,jean.dupont@email.com,0612345678
+005,Petit Marie,2023-05-20,55.5,En Attente,2024-01-15,marie.petit@gmail.com,06.11.22.33.44
+006,Robert Thomas,2023-06-12,29.99,Actif,2024-02-21,thomas.robert@hotmail.com,06 99 88 77 66
+007,Richard,2023-07-30,,Inactif,,richard@entreprise.com,
+008,Dubois Julie,2023-08-15,9.99,Actif,2024-02-22,julie.d@orange.fr,06-22-33-44-55
+002,Martin Sophie,15/01/2023,45.00,Resilié,,sophie.m@provider.fr,+33 6 98 76 54 32
+009,Moreau,2023-09-01,29.99,Actif,2024-02-10,moreau.famille@sfr.fr,0600112233
+010,Laurent Simon,2023-10-10,100,VIP,2024-02-23,s.laurent@banque.com,0788990011
+011,Simon Laurent,2023-10-10,100.00,VIP,2024-02-23,s.laurent@banque.com,0788990011
+012,Michel,2023-11-05,19.99,Actif,2024-02-15,,06 12 34 56 78
+013,Garcia,,29.99,Actif,2024-02-20,garcia@free.fr,
+014,Thomas Paul,2024-01-01,29.99,Nouveau,2024-02-24,paul.thomas@outlook.com,0655667788
