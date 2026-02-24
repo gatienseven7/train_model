@@ -152,7 +152,24 @@ Assignez ces macros à des boutons (Formes rectangulaires > Clic droit > Affecte
 
 ## 🌐 Partie 6 : Google Sheets - Le Cloud Power
 
-Les fonctions sont souvent identiques, mais certaines sont uniques et ultra-puissantes.
+Les fonctions sont souvent identiques, mais certaines sont uniques et ultra-puissantes. Voici comment reproduire les actions d'Excel pas à pas.
+
+### 6.0. Les Équivalents Excel (Step-by-Step)
+
+**A. Supprimer les Doublons**
+1.  Sélectionnez vos données.
+2.  Menu **Données** > **Nettoyage de données** > **Supprimer les doublons**.
+3.  Cochez "Données avec ligne d'en-tête". Validez.
+
+**B. Fractionner (Split Column)**
+1.  Sélectionnez la colonne "Nom_Complet".
+2.  Menu **Données** > **Scinder le texte en colonnes**.
+3.  Une petite boîte apparaît en bas : Choisissez "Espace" comme séparateur.
+
+**C. Tri et Filtre (Filter Views)**
+Contrairement à Excel, on utilise souvent les "Vues filtrées" pour ne pas gêner les autres collaborateurs.
+1.  Menu **Données** > **Vues filtrées** > **Créer une vue filtrée**.
+2.  L'interface devient grise. Vous pouvez trier et filtrer sans impacter le fichier pour les autres !
 
 ### 6.1. La fonction QUERY (Le SQL dans Sheets !)
 C'est LA fonction qui tue le game. Elle permet d'écrire du pseudo-SQL directement dans une cellule.
