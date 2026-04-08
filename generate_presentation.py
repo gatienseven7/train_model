@@ -233,6 +233,90 @@ def add_bloc4_slide(prs):
     viz_box.line.width = Pt(2)
     set_shape_text(viz_box, "[VISUEL KADEA]\nAnimation en deux temps.\n1: Croquis crayonné (Provinces/Antennes/Techniciens).\n2: Morphing en Database Schema strict encadré de rouge.", ANTHRACITE, Pt(14), False, PP_ALIGN.CENTER)
 
+def add_acid_slide(prs):
+    slide_layout = prs.slide_layouts[5]
+    slide = prs.slides.add_slide(slide_layout)
+
+    # Title
+    title_box = slide.shapes.add_textbox(Inches(0.5), Inches(0.5), Inches(9), Inches(1))
+    set_shape_text(title_box, "🔴 DEEP DIVE: Le Modèle ACID (Transactions)", KADEA_RED, Pt(28), True)
+
+    # Content
+    content_box = slide.shapes.add_textbox(Inches(0.5), Inches(1.5), Inches(4.5), Inches(5))
+    tf = content_box.text_frame
+    tf.word_wrap = True
+
+    p1 = tf.add_paragraph()
+    p1.text = "Garantir la fiabilité absolue"
+    p1.font.bold = True
+    p1.font.size = Pt(20)
+
+    p2 = tf.add_paragraph()
+    p2.text = "- Atomicité : Une transaction passe entièrement ou est annulée (0 ou 100%).\n- Cohérence : Le Database Schema et les contraintes sont toujours respectés."
+    p2.font.size = Pt(16)
+    p2.level = 1
+
+    p3 = tf.add_paragraph()
+    p3.text = "Sécurité & Isolation"
+    p3.font.bold = True
+    p3.font.size = Pt(20)
+    p3.font.color.rgb = KADEA_RED
+
+    p4 = tf.add_paragraph()
+    p4.text = "- Isolation : Les transactions simultanées n'interfèrent pas (Multi-users).\n- Durabilité : En cas de crash, les données validées sont sauvegardées."
+    p4.font.size = Pt(16)
+    p4.level = 1
+
+    # Visual Placeholder
+    viz_box = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(5.5), Inches(1.5), Inches(4), Inches(5))
+    viz_box.fill.solid()
+    viz_box.fill.fore_color.rgb = WHITE
+    viz_box.line.color.rgb = KADEA_RED
+    viz_box.line.width = Pt(2)
+    set_shape_text(viz_box, "[VISUEL KADEA]\nSchéma ACID.\n4 piliers supportant un temple grec (RDBMS).\nChaque pilier porte une lettre A, C, I, D avec une icône de bouclier.", ANTHRACITE, Pt(14), False, PP_ALIGN.CENTER)
+
+def add_sql_analysis_slide(prs):
+    slide_layout = prs.slide_layouts[5]
+    slide = prs.slides.add_slide(slide_layout)
+
+    # Title
+    title_box = slide.shapes.add_textbox(Inches(0.5), Inches(0.5), Inches(9), Inches(1))
+    set_shape_text(title_box, "🔴 DEEP DIVE: SQL Syntax pour l'Analyse (DBeaver)", KADEA_RED, Pt(28), True)
+
+    # Content
+    content_box = slide.shapes.add_textbox(Inches(0.5), Inches(1.5), Inches(4.5), Inches(5))
+    tf = content_box.text_frame
+    tf.word_wrap = True
+
+    p1 = tf.add_paragraph()
+    p1.text = "Nettoyage & Data Quality"
+    p1.font.bold = True
+    p1.font.size = Pt(20)
+
+    p2 = tf.add_paragraph()
+    p2.text = "- Gérer les 'Dirty Data' (doublons, formats mixtes, Missing Values).\n- SQL permet de transformer et filtrer massivement (Data Wrangling)."
+    p2.font.size = Pt(16)
+    p2.level = 1
+
+    p3 = tf.add_paragraph()
+    p3.text = "Analyse Statistique & Window Functions"
+    p3.font.bold = True
+    p3.font.size = Pt(20)
+    p3.font.color.rgb = KADEA_RED
+
+    p4 = tf.add_paragraph()
+    p4.text = "- Syntaxe avancée (PostgreSQL) : SELECT, JOIN, GROUP BY.\n- Fonctions de fenêtrage (OVER, PARTITION BY) pour des analyses de distribution."
+    p4.font.size = Pt(16)
+    p4.level = 1
+
+    # Visual Placeholder
+    viz_box = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(5.5), Inches(1.5), Inches(4), Inches(5))
+    viz_box.fill.solid()
+    viz_box.fill.fore_color.rgb = WHITE
+    viz_box.line.color.rgb = KADEA_RED
+    viz_box.line.width = Pt(2)
+    set_shape_text(viz_box, "[VISUEL KADEA]\nSplit Screen.\nHaut : Un dataset brouillon ('Dirty').\nBas : Bloc de code SQL (Syntaxe PostgreSQL/DBeaver) purifiant les données (Entonnoir Rouge).", ANTHRACITE, Pt(14), False, PP_ALIGN.CENTER)
+
 def add_conclusion_slide(prs):
     slide_layout = prs.slide_layouts[5]
     slide = prs.slides.add_slide(slide_layout)
@@ -275,6 +359,8 @@ def create_presentation():
     add_bloc2_slide(prs)
     add_bloc3_slide(prs)
     add_bloc4_slide(prs)
+    add_acid_slide(prs)
+    add_sql_analysis_slide(prs)
     add_conclusion_slide(prs)
 
     prs.save('Module2_Week1_Presentation.pptx')
