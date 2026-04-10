@@ -73,6 +73,22 @@ def create_instructor_brief():
 
     doc.add_page_break()
 
+    # NOUVEAU BLOC : ADVANCED ARCHITECTURE & OPTIMIZATION (High-Level / Senior Trainer)
+    add_heading(doc, '🔴 BLOC 5 : ADVANCED ARCHITECTURE (Masterclass Formateur)')
+    add_paragraph(doc, 'Objectif :', bold=True)
+    add_paragraph(doc, 'Transmettre une vision "Senior" en allant au-delà de la simple syntaxe SQL. Aborder la mécanique interne du SGBDR pour concevoir des systèmes performants à grande échelle.')
+
+    add_paragraph(doc, 'Le Discours (Normalisation vs Dénormalisation) :', bold=True)
+    add_paragraph(doc, "« Une base de données opérationnelle (OLTP) se doit d'être normalisée, idéalement en 3ème Forme Normale (3NF), pour éviter toute redondance. Mais attention, en Business Intelligence (OLAP), nous ferons délibérément l'inverse : la dénormalisation, pour réduire le coût des jointures lors de la lecture de millions de lignes. »")
+
+    add_paragraph(doc, 'Le Discours (Performance et Indexation) :', bold=True)
+    add_paragraph(doc, "« Si votre requête est lente, le problème vient souvent de l\'optimiseur de requêtes (Query Planner) qui effectue un Full Table Scan. Comment l'éviter ? En créant des Index (B-Tree pour les plages de dates, Hash pour les correspondances exactes). Mais attention, un index accélère la lecture (SELECT) au détriment de l'écriture (INSERT/UPDATE). C'est un arbitrage d'architecte. »")
+
+    add_paragraph(doc, 'Le Discours (SQL Avancé - Window Functions) :', bold=True)
+    add_paragraph(doc, "« Le SQL n\'est pas mort, il a évolué. Pour des analyses statistiques poussées sans perdre le grain de vos données, oubliez le simple GROUP BY. Les CTEs (Common Table Expressions avec la clause WITH) rendent votre code lisible, et les Window Functions (OVER, PARTITION BY, LAG, LEAD) vous permettent de calculer des moyennes mobiles temporelles avec une élégance redoutable. »")
+
+    doc.add_page_break()
+
     # Grille d'évaluation
     add_heading(doc, 'Grille d\'évaluation (Grading Rubric) - Exercice Bloc 4')
 
